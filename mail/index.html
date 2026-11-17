@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How much of your home do you actually own? | Home Equity Lending</title>
+<title>Check your home equity | Home Equity Lending</title>
 <meta name="description" content="Find your home equity in about a minute, get the Home Equity Readiness Checklist, and read the risks before you borrow against your home.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://homeeqty.com/mail/">
@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/equity-check.css">
 </head>
 <body id="top" class="mail-page">
 
@@ -39,9 +40,9 @@
 
   <section class="hero" style="border-top:none; padding-bottom:40px;">
     <div class="wrap">
-      <div class="eyebrow">From the card in your mailbox</div>
-      <h1>How much of your home do you <em>actually own?</em></h1>
-      <p class="hero-sub">Find your home equity in about a minute. Then decide, with clear eyes, whether borrowing against it makes sense for you.</p>
+      <div class="eyebrow">Thanks for reading our card</div>
+      <h1>See your home equity <em>in about a minute.</em></h1>
+      <p class="hero-sub">Put in two numbers to estimate your equity. Then work through the checklist and the risks before you decide whether borrowing against your home makes sense for you.</p>
       <p class="disclosure-line" style="margin-top:0;">Home Equity Lending LLC is an independent marketing affiliate of Figure Lending and may be compensated when you start an application through our links. We are not a lender and not a government program.</p>
     </div>
   </section>
@@ -53,24 +54,24 @@
         <h2>Estimate your home equity in 60 seconds.</h2>
         <p class="section-sub">Enter two numbers and we do the subtraction. Nothing you type is saved or sent anywhere.</p>
       </div>
-      <div class="calc" id="calc">
-        <div class="calc-field">
+      <div class="eq-calc" id="calc">
+        <div class="eq-field">
           <label for="home-value">Estimated home value</label>
           <input id="home-value" type="text" inputmode="numeric" autocomplete="off" aria-describedby="home-value-help home-value-error" placeholder="450,000">
-          <p class="calc-help" id="home-value-help">Your best estimate of what your home would sell for today.</p>
-          <p class="calc-error" id="home-value-error" aria-live="polite"></p>
+          <p class="eq-help" id="home-value-help">Your best estimate of what your home would sell for today.</p>
+          <p class="eq-error" id="home-value-error" aria-live="polite"></p>
         </div>
-        <div class="calc-field">
+        <div class="eq-field">
           <label for="mortgage-balance">Mortgage balance</label>
           <input id="mortgage-balance" type="text" inputmode="numeric" autocomplete="off" aria-describedby="mortgage-balance-help mortgage-balance-error" placeholder="210,000">
-          <p class="calc-help" id="mortgage-balance-help">Your current balance from your latest statement. Include every loan secured by your home. Enter 0 if your home is paid off.</p>
-          <p class="calc-error" id="mortgage-balance-error" aria-live="polite"></p>
+          <p class="eq-help" id="mortgage-balance-help">Your current balance from your latest statement. Include every loan secured by your home. Enter 0 if your home is paid off.</p>
+          <p class="eq-error" id="mortgage-balance-error" aria-live="polite"></p>
         </div>
-        <div class="calc-actions">
+        <div class="eq-actions">
           <button type="button" class="btn-primary" id="calc-run">Show my equity</button>
         </div>
-        <div class="calc-result" id="calc-result" aria-live="polite" hidden>
-          <p class="calc-answer" id="calc-answer"></p>
+        <div class="eq-result" id="calc-result" aria-live="polite" hidden>
+          <p class="eq-answer" id="calc-answer"></p>
           <p>This is your home value minus your mortgage balance. It is an estimate, not an appraisal, and it is not an offer of credit or a statement of how much you could borrow.</p>
           <p class="disclosure-line">Home Equity Lending LLC is an independent marketing affiliate of Figure Lending and may be compensated when you start an application through our links. We are not a lender and not a government program.</p>
           <p><button type="button" class="link-button" id="calc-reset">Start over</button></p>

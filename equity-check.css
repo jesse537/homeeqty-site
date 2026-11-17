@@ -1,0 +1,34 @@
+/* /mail fallback page only: Equity Check and checklist. Kept out of styles.css so the mail test pages can change that file freely. */
+.eq-calc{
+  max-width:640px; border:1px solid var(--line); background:var(--panel);
+  padding:28px; display:flex; flex-direction:column; gap:20px;
+}
+.eq-field label{ margin-bottom:8px; }
+.eq-help{ font-size:0.85rem; color:var(--paper-dim); margin:8px 0 0; }
+.eq-error{ font-size:0.85rem; color:#f0a5a5; margin:6px 0 0; min-height:0; }
+.eq-error:empty{ display:none; }
+.eq-calc input[aria-invalid="true"]{ border-color:#f0a5a5; }
+.eq-actions .btn-primary{ border:none; cursor:pointer; font:inherit; }
+.eq-result{ border-top:1px solid var(--line-dim); padding-top:20px; }
+.eq-result p{ color:var(--paper-dim); font-size:0.92rem; }
+.eq-result .eq-answer{ font-family:'Fraunces', serif; font-size:1.6rem; color:var(--paper); margin:0 0 12px; }
+.link-button{
+  background:none; border:none; padding:0; cursor:pointer;
+  font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.04em;
+  color:var(--gold-bright); text-decoration:underline;
+}
+.checklist-title{ font-size:clamp(1.6rem, 3vw, 2.2rem); margin:10px 0 14px; }
+.prose h3{ font-size:1.1rem; margin:30px 0 10px; }
+.prose ul.checklist{ list-style:none; padding-left:0; }
+.checklist li{ position:relative; padding-left:30px; margin-bottom:10px; }
+.checklist li::before{
+  content:""; position:absolute; left:0; top:0.3em; width:14px; height:14px;
+  border:1.5px solid var(--gold); background:transparent;
+}
+.print-button{ cursor:pointer; font:inherit; }
+@media print{
+  .grid-bg, .grid-fade, .disclosure-bar, header, #equity-check, #compare, #apply, .print-button, footer .footer-links{ display:none !important; }
+  body{ background:#fff !important; color:#000 !important; }
+  .prose p, .prose li, .prose h2, .prose h3, .section-tag{ color:#000 !important; }
+  .checklist li::before{ border-color:#000; }
+}

@@ -630,38 +630,3 @@ table.compare tr:last-child th, table.compare tr:last-child td{ border-bottom:no
 .answer-card h2{ font-size:1.2rem; margin:0 0 10px; }
 .answer-card p{ color:var(--paper-dim); font-size:0.95rem; margin:0 0 14px; }
 .answer-more{ font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-bright); }
-
-/* ---- Mail landing page: Equity Check and checklist ---- */
-.calc{
-  max-width:640px; border:1px solid var(--line); background:var(--panel);
-  padding:28px; display:flex; flex-direction:column; gap:20px;
-}
-.calc-field label{ margin-bottom:8px; }
-.calc-help{ font-size:0.85rem; color:var(--paper-dim); margin:8px 0 0; }
-.calc-error{ font-size:0.85rem; color:#f0a5a5; margin:6px 0 0; min-height:0; }
-.calc-error:empty{ display:none; }
-.calc input[aria-invalid="true"]{ border-color:#f0a5a5; }
-.calc-actions .btn-primary{ border:none; cursor:pointer; font:inherit; }
-.calc-result{ border-top:1px solid var(--line-dim); padding-top:20px; }
-.calc-result p{ color:var(--paper-dim); font-size:0.92rem; }
-.calc-result .calc-answer{ font-family:'Fraunces', serif; font-size:1.6rem; color:var(--paper); margin:0 0 12px; }
-.link-button{
-  background:none; border:none; padding:0; cursor:pointer;
-  font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.04em;
-  color:var(--gold-bright); text-decoration:underline;
-}
-.checklist-title{ font-size:clamp(1.6rem, 3vw, 2.2rem); margin:10px 0 14px; }
-.prose h3{ font-size:1.1rem; margin:30px 0 10px; }
-.prose ul.checklist{ list-style:none; padding-left:0; }
-.checklist li{ position:relative; padding-left:30px; margin-bottom:10px; }
-.checklist li::before{
-  content:""; position:absolute; left:0; top:0.3em; width:14px; height:14px;
-  border:1.5px solid var(--gold); background:transparent;
-}
-.print-button{ cursor:pointer; font:inherit; }
-@media print{
-  .grid-bg, .grid-fade, .disclosure-bar, header, #equity-check, #compare, #apply, .print-button, footer .footer-links{ display:none !important; }
-  body{ background:#fff !important; color:#000 !important; }
-  .prose p, .prose li, .prose h2, .prose h3, .section-tag{ color:#000 !important; }
-  .checklist li::before{ border-color:#000; }
-}
