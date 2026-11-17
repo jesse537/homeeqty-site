@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Equity Lending LLC — Home Equity Financing for Contractors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-deep:#081527;
+    --ink:#0E2238;
+    --panel:#132C46;
+    --panel-2:#16324C;
+    --line:#3C6B94;
+    --line-dim:#22496b;
+    --grid:#183a58;
+    --paper:#E9F0F6;
+    --paper-dim:#AFC4D8;
+    --gold:#C9973D;
+    --gold-bright:#E3B564;
+    --focus:#7FC4E8;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* Background grid texture — blueprint paper */
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:44px 44px;
+    opacity:0.35;
+  }
+  .grid-fade{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0%, rgba(14,34,56,0) 0%, var(--ink) 78%);
+  }
+
+  main, header, footer{ position:relative; z-index:1; }
+
+  /* ============ HEADER ============ */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(8,21,39,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid transparent;
+    transition:background 0.25s ease, border-color 0.25s ease;
+  }
+  header.scrolled{
+    background:rgba(8,21,39,0.95);
+    border-bottom-color:var(--line-dim);
+  }
+  /* hairline gold accent under the bar */
+  header::after{
+    content:''; position:absolute; left:0; right:0; bottom:-1px; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(201,151,61,0.5), transparent);
+    opacity:0; transition:opacity 0.25s ease;
+  }
+  header.scrolled::after{ opacity:1; }
+
+  .nav{
+    display:flex; align-items:center; gap:28px;
+    padding:16px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+
+  .brand{
+    display:flex; align-items:center; gap:11px;
+    text-decoration:none; color:var(--paper);
+    margin-right:auto; flex-shrink:0;
+  }
+  .brand-mark{
+    width:24px; height:24px;
+    border:1.5px solid var(--gold);
+    position:relative; flex-shrink:0;
+    transition:transform 0.3s ease;
+  }
+  .brand:hover .brand-mark{ transform:rotate(90deg); }
+  .brand-mark::before, .brand-mark::after{
+    content:''; position:absolute; background:var(--gold);
+  }
+  .brand-mark::before{ top:50%; left:4px; right:4px; height:1.5px; transform:translateY(-50%); }
+  .brand-mark::after{ left:50%; top:4px; bottom:4px; width:1.5px; transform:translateX(-50%); }
+  .brand-text{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:1.04rem; letter-spacing:0.005em; line-height:1;
+    white-space:nowrap;
+  }
+  .brand-suffix{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem; font-weight:500;
+    color:var(--paper-dim); letter-spacing:0.12em;
+    margin-left:6px; vertical-align:2px;
+  }
+
+  .nav-links{ display:flex; align-items:center; gap:30px; }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--paper-dim); text-decoration:none;
+    position:relative; padding:6px 0;
+    transition:color 0.2s ease; white-space:nowrap;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:1px;
+    background:var(--gold-bright); transform:scaleX(0); transform-origin:left;
+    transition:transform 0.25s ease;
+  }
+  .nav-links a:hover{ color:var(--paper); }
+  .nav-links a:hover::after{ transform:scaleX(1); }
+
+  .nav-divider{
+    width:1px; height:20px; background:var(--line-dim); flex-shrink:0;
+  }
+
+  .nav-actions{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
+  .nav-cta, .nav-cta-alt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase;
+    padding:11px 18px; text-decoration:none; white-space:nowrap;
+    transition:all 0.2s ease;
+  }
+  .nav-cta-alt{
+    color:var(--paper); border:1px solid var(--line);
+    background:transparent;
+  }
+  .nav-cta-alt:hover{ border-color:var(--gold-bright); color:var(--gold-bright); }
+  .nav-cta{
+    color:var(--ink-deep); background:var(--gold); border:1px solid var(--gold);
+  }
+  .nav-cta:hover{ background:var(--gold-bright); border-color:var(--gold-bright); }
+
+  /* hamburger */
+  .nav-toggle{
+    display:none; background:none; border:1px solid var(--line-dim);
+    width:40px; height:38px; cursor:pointer; padding:0;
+    align-items:center; justify-content:center; flex-shrink:0;
+    transition:border-color 0.2s ease;
+  }
+  .nav-toggle:hover{ border-color:var(--line); }
+  .nav-toggle span{
+    display:block; width:16px; height:1.5px; background:var(--paper);
+    position:relative; transition:background 0.2s ease;
+  }
+  .nav-toggle span::before, .nav-toggle span::after{
+    content:''; position:absolute; left:0; width:16px; height:1.5px;
+    background:var(--paper); transition:transform 0.25s ease, top 0.25s ease;
+  }
+  .nav-toggle span::before{ top:-5px; }
+  .nav-toggle span::after{ top:5px; }
+  .nav-toggle[aria-expanded="true"] span{ background:transparent; }
+  .nav-toggle[aria-expanded="true"] span::before{ top:0; transform:rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::after{ top:0; transform:rotate(-45deg); }
+
+  /* mobile panel */
+  .nav-panel{
+    display:none;
+    position:absolute; top:100%; left:0; right:0;
+    background:rgba(8,21,39,0.98);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-dim);
+    padding:8px 32px 26px;
+  }
+  .nav-panel.open{ display:block; }
+  .nav-panel a{
+    display:block; padding:15px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--paper-dim); text-decoration:none;
+    border-bottom:1px solid var(--line-dim);
+    transition:color 0.2s ease;
+  }
+  .nav-panel a:hover{ color:var(--gold-bright); }
+  .nav-panel .panel-ctas{
+    display:flex; flex-direction:column; gap:10px; margin-top:20px;
+  }
+  .nav-panel .panel-ctas a{
+    border-bottom:none; text-align:center; padding:14px 18px;
+  }
+  .nav-panel .panel-ctas .nav-cta-alt{ border:1px solid var(--line); color:var(--paper); }
+  .nav-panel .panel-ctas .nav-cta{ color:var(--ink-deep); }
+
+  @media (max-width:1000px){
+    .nav-links{ gap:22px; }
+    .nav-links a{ font-size:0.68rem; letter-spacing:0.09em; }
+  }
+  @media (max-width:900px){
+    .nav-links, .nav-divider, .nav-actions{ display:none; }
+    .nav-toggle{ display:flex; }
+    .nav{ gap:16px; }
+  }
+  @media (max-width:400px){
+    .nav{ padding:14px 20px; }
+    .nav-panel{ padding:8px 20px 22px; }
+    .brand-text{ font-size:0.95rem; }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:88px 0 40px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; display:block; width:28px; height:1px; background:var(--gold-bright);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:60px; align-items:center;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.4rem, 4.6vw, 3.85rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+    margin:0 0 26px;
+  }
+  h1 em{
+    font-style:italic; font-weight:400; color:var(--gold-bright);
+  }
+  .hero-sub{
+    font-size:1.12rem;
+    color:var(--paper-dim);
+    max-width:46ch;
+    margin:0 0 34px;
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:38px; }
+  .btn-primary{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+    letter-spacing:0.03em;
+    background:var(--gold);
+    color:var(--ink-deep);
+    padding:15px 26px;
+    text-decoration:none;
+    border:1px solid var(--gold);
+    transition:all 0.2s;
+  }
+  .btn-primary:hover{ background:var(--gold-bright); border-color:var(--gold-bright); }
+  .btn-ghost{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+    letter-spacing:0.03em;
+    color:var(--paper);
+    padding:15px 26px;
+    text-decoration:none;
+    border:1px solid var(--line);
+    transition:all 0.2s;
+  }
+  .btn-ghost:hover{ border-color:var(--paper); }
+
+  .hero-stats{
+    display:flex; gap:26px; padding-top:28px; border-top:1px solid var(--line-dim); flex-wrap:wrap;
+  }
+  .stat-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.4rem; font-weight:600; color:var(--gold-bright);
+    display:block;
+  }
+  .stat-label{ font-size:0.78rem; color:var(--paper-dim); max-width:14ch; }
+
+  /* ============ SCHEMATIC DIAGRAM (signature element) ============ */
+  .schematic{
+    background:var(--panel);
+    border:1px solid var(--line-dim);
+    padding:28px 24px 24px;
+    position:relative;
+  }
+  .schematic-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    color:var(--paper-dim);
+    display:flex; justify-content:space-between;
+    margin-bottom:18px;
+    text-transform:uppercase;
+  }
+  .schematic-label span:last-child{ color:var(--gold-bright); }
+  svg.diagram{ width:100%; height:auto; display:block; }
+  .diagram .flow-line{
+    fill:none; stroke:var(--gold); stroke-width:2;
+    stroke-dasharray:8 6;
+    stroke-dashoffset:1000;
+    animation:dash 3.5s linear forwards infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset:0; } }
+  .diagram .node-box{ fill:var(--ink-deep); stroke:var(--line); stroke-width:1.4; }
+  .diagram .node-box.active{ stroke:var(--gold-bright); }
+  .diagram text{ font-family:'IBM Plex Mono', monospace; fill:var(--paper); }
+  .diagram .node-title{ font-size:11px; font-weight:600; }
+  .diagram .node-sub{ font-size:8.5px; fill:var(--paper-dim); }
+  .diagram .fig-tag{ font-size:9px; fill:var(--gold-bright); }
+
+  @media (prefers-reduced-motion: reduce){
+    .diagram .flow-line{ animation:none; stroke-dashoffset:0; }
+  }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-stats{ flex-wrap:wrap; row-gap:16px; }
+  }
+
+  /* ============ SECTION SCAFFOLDING ============ */
+  section{ padding:96px 0; border-top:1px solid var(--line-dim); }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold-bright); margin-bottom:14px;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(1.7rem, 3vw, 2.4rem);
+    line-height:1.15;
+    margin:0 0 16px;
+    letter-spacing:-0.01em;
+  }
+  .section-sub{ color:var(--paper-dim); font-size:1.05rem; max-width:60ch; }
+
+  /* ---- Problem / two-column ---- */
+  .problem-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:48px;
+  }
+  .problem-card{
+    border-left:2px solid var(--line);
+    padding-left:24px;
+  }
+  .problem-card.gold{ border-left-color:var(--gold); }
+  .problem-card h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.25rem; margin:0 0 10px;
+  }
+  .problem-card p{ color:var(--paper-dim); margin:0; font-size:0.98rem; }
+  @media (max-width:820px){ .problem-grid{ grid-template-columns:1fr; } }
+
+  /* ---- How it works: figure steps ---- */
+  .fig-steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line-dim);
+    border:1px solid var(--line-dim);
+  }
+  .fig-step{
+    background:var(--ink);
+    padding:32px 26px;
+  }
+  .fig-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem; color:var(--gold-bright); letter-spacing:0.06em;
+    margin-bottom:18px; display:block;
+  }
+  .fig-step h4{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.08rem; margin:0 0 10px;
+  }
+  .fig-step p{ color:var(--paper-dim); font-size:0.92rem; margin:0; }
+  @media (max-width:900px){ .fig-steps{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .fig-steps{ grid-template-columns:1fr; } }
+
+  /* ---- Verticals grid ---- */
+  .vert-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line-dim); border:1px solid var(--line-dim);
+  }
+  .vert-card{
+    background:var(--panel);
+    padding:30px 26px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .vert-illo{
+    width:56px; height:56px; flex-shrink:0; margin-bottom:4px;
+  }
+  .vert-illo .illo-line{
+    fill:none; stroke:var(--line); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .vert-illo .illo-line-gold{
+    fill:none; stroke:var(--gold); stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  }
+  .vert-card h4{ font-family:'Fraunces', serif; font-size:1.05rem; margin:6px 0 2px; font-weight:600; }
+  .vert-card p{ color:var(--paper-dim); font-size:0.88rem; margin:0; }
+  @media (max-width:900px){ .vert-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .vert-grid{ grid-template-columns:1fr; } }
+
+  /* ---- Why section: ledger list ---- */
+  .ledger{ border-top:1px solid var(--line-dim); }
+  .ledger-row{
+    display:grid; grid-template-columns:44px 1fr 1fr;
+    gap:24px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line-dim);
+    align-items:baseline;
+  }
+  .ledger-row .num{ font-family:'IBM Plex Mono', monospace; color:var(--gold-bright); font-size:0.85rem; }
+  .ledger-row h4{ font-family:'Fraunces', serif; font-weight:600; font-size:1.1rem; margin:0; }
+  .ledger-row p{ color:var(--paper-dim); font-size:0.92rem; margin:0; }
+  @media (max-width:700px){
+    .ledger-row{ grid-template-columns:1fr; gap:8px; }
+  }
+
+  /* ---- Homeowner apply band ---- */
+  .homeowner-band{
+    background:var(--panel);
+    border:1px solid var(--line-dim);
+    border-left:3px solid var(--gold);
+    padding:48px 44px;
+  }
+  .homeowner-band h2{ max-width:22ch; }
+  .apply-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem; color:var(--paper-dim); margin:22px 0 0; max-width:62ch; line-height:1.6;
+  }
+  @media (max-width:640px){ .homeowner-band{ padding:34px 24px; } }
+
+  /* ---- FAQ ---- */
+  .faq-list{ border-top:1px solid var(--line-dim); }
+  .faq-item{ border-bottom:1px solid var(--line-dim); }
+  .faq-question{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:24px 0; display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.08rem; color:var(--paper);
+  }
+  .faq-question .faq-icon{
+    font-family:'IBM Plex Mono', monospace; color:var(--gold-bright); font-size:1.1rem;
+    flex-shrink:0; transition:transform 0.2s;
+  }
+  .faq-item[open] .faq-icon{ transform:rotate(45deg); }
+  .faq-answer{
+    color:var(--paper-dim); font-size:0.96rem; padding:0 0 26px; max-width:70ch;
+  }
+  .faq-question::-webkit-details-marker{ display:none; }
+
+  /* ---- Contact / CTA ---- */
+  .contact-section{
+    background:var(--ink-deep);
+  }
+  .contact-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px; }
+  .contact-grid h2{ max-width:20ch; }
+  .contact-list{ margin-top:28px; display:flex; flex-direction:column; gap:16px; }
+  .contact-list div{ font-family:'IBM Plex Mono', monospace; font-size:0.86rem; color:var(--paper-dim); }
+  .contact-list strong{ color:var(--gold-bright); display:block; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:4px; }
+
+  form{ display:flex; flex-direction:column; gap:18px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--paper-dim); display:block; margin-bottom:8px;
+  }
+  input, select, textarea{
+    width:100%;
+    background:var(--panel);
+    border:1px solid var(--line);
+    color:var(--paper);
+    padding:13px 14px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.95rem;
+  }
+  input:focus, select:focus, textarea:focus{ border-color:var(--gold-bright); }
+  textarea{ resize:vertical; min-height:90px; }
+  .submit-btn{
+    align-self:flex-start;
+    margin-top:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.86rem;
+    background:var(--gold);
+    color:var(--ink-deep);
+    border:1px solid var(--gold);
+    padding:15px 30px;
+    cursor:pointer;
+    transition:all 0.2s;
+  }
+  .submit-btn:hover{ background:var(--gold-bright); }
+  @media (max-width:820px){
+    .contact-grid{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+  }
+
+  /* ---- Footer ---- */
+  footer{
+    border-top:1px solid var(--line-dim);
+    padding:40px 0;
+    font-size:0.8rem;
+    color:var(--paper-dim);
+  }
+  .footer-grid{ display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; }
+  .disclosure{ max-width:70ch; line-height:1.6; }
+  .disclosure code{
+    background:var(--panel); padding:2px 5px; font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between a HELOC and a home equity loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A home equity loan gives you a single lump sum with a fixed repayment schedule. A traditional HELOC instead lets you draw funds as needed over time, up to an approved limit. Figure's HELOC is a hybrid: it requires the full approved amount to be disbursed at closing, similar to a home equity loan, but keeps the line open so homeowners can redraw funds as they repay during the draw period."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can financing be approved for a project like solar or a roof replacement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homeowners typically complete the online application in about five minutes, and many receive a credit decision the same day, a meaningfully faster timeline than a traditional home equity loan, which can take several weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does checking eligibility affect a homeowner's credit score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The initial eligibility check uses a soft credit pull, which does not affect the homeowner's credit score. A hard credit inquiry only occurs later in underwriting, once the homeowner chooses to move forward with a full application."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will taking a HELOC affect a homeowner's existing mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, a HELOC or home equity loan sits behind the homeowner's existing first mortgage rather than replacing it. Homeowners keep their current mortgage rate and terms untouched while accessing equity separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the contractor get paid once a homeowner is approved?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Figure disburses the full approved loan amount directly to the homeowner's account at closing, typically within about 5 business days. There is no lender-managed milestone draw process to the contractor; the homeowner pays the contractor according to their own contract's payment schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which trades and project types qualify for this financing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The financing structure applies broadly to home-improvement projects, including solar and battery storage, roofing, windows and doors, HVAC replacement, full remodels, and other qualifying home improvement work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much can a homeowner borrow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Loan amounts through Figure's home equity products range up to $750,000, depending on the homeowner's available equity, credit profile, and underwriting approval."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who actually originates and underwrites the loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home Equity Lending LLC is a marketing affiliate and does not originate, underwrite, or fund loans. All financing is originated by Figure Lending LLC, an equal opportunity lender. Approval, rates, and terms are determined by Figure's underwriting guidelines and vary by state."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="grid-fade"></div>
+
+<header id="site-header">
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Home Equity Lending LLC home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">Home Equity Lending<span class="brand-suffix">LLC</span></span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#verticals">Industries</a>
+      <a href="#why">Why Partner</a>
+      <a href="#apply">Homeowners</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <div class="nav-divider" aria-hidden="true"></div>
+
+    <div class="nav-actions">
+      <a class="nav-cta-alt" href="https://figure-home-equity.pxf.io/c/7511981/3984582/8735" target="_blank" rel="noopener sponsored">Apply Now</a>
+      <a class="nav-cta" href="#contact">Become a Partner</a>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+      <span aria-hidden="true"></span>
+    </button>
+  </nav>
+
+  <div class="nav-panel" id="nav-panel">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#verticals">Industries</a>
+    <a href="#why">Why Partner</a>
+    <a href="#apply">Homeowners</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <div class="panel-ctas">
+      <a class="nav-cta-alt" href="https://figure-home-equity.pxf.io/c/7511981/3984582/8735" target="_blank" rel="noopener sponsored">Apply Now</a>
+      <a class="nav-cta" href="#contact">Become a Partner</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="border-top:none; padding-bottom:60px;">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Contractor Financing Network</div>
+          <h1>Turn home equity into <em>signed contracts.</em></h1>
+          <p class="hero-sub">We connect solar, roofing, and home-improvement companies with Figure's home equity lending platform. Homeowners can check pre-approval in just a few minutes with a soft credit check that won't affect their score — with funding in as little as 5 business days and loan amounts up to $750,000.</p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="#contact">Become a Partner</a>
+            <a class="btn-ghost" href="#how-it-works">See How Funding Flows</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <span class="stat-num">~5 min</span>
+              <span class="stat-label">to check pre-approval</span>
+            </div>
+            <div>
+              <span class="stat-num">Soft pull</span>
+              <span class="stat-label">no impact to credit score</span>
+            </div>
+            <div>
+              <span class="stat-num">5 days</span>
+              <span class="stat-label">funding once approved</span>
+            </div>
+            <div>
+              <span class="stat-num">$750K</span>
+              <span class="stat-label">maximum loan amount</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="schematic">
+          <div class="schematic-label"><span>FIG. 1 — CAPITAL FLOW</span><span>SCHEMATIC</span></div>
+          <svg class="diagram" viewBox="0 0 460 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Nodes -->
+            <rect class="node-box" x="20" y="20" width="180" height="56" rx="1"/>
+            <text class="node-title" x="34" y="42">HOME EQUITY</text>
+            <text class="node-sub" x="34" y="58">Homeowner's available equity</text>
+
+            <rect class="node-box active" x="260" y="20" width="180" height="56" rx="1"/>
+            <text class="node-title" x="274" y="42">FIGURE UNDERWRITING</text>
+            <text class="node-sub" x="274" y="58">Automated approval &amp; funding</text>
+
+            <rect class="node-box" x="20" y="222" width="180" height="56" rx="1"/>
+            <text class="node-title" x="34" y="244">HOMEOWNER FUNDED</text>
+            <text class="node-sub" x="34" y="260">Full amount disbursed at closing</text>
+
+            <rect class="node-box" x="260" y="222" width="180" height="56" rx="1"/>
+            <text class="node-title" x="274" y="244">CONTRACTOR PAID</text>
+            <text class="node-sub" x="274" y="260">Per your standard payment terms</text>
+
+            <!-- Connecting flow lines -->
+            <path class="flow-line" d="M200,48 L260,48"/>
+            <path class="flow-line" d="M350,76 L350,140 L110,140 L110,222"/>
+            <path class="flow-line" d="M200,250 L260,250"/>
+
+            <text class="fig-tag" x="20" y="14">A</text>
+            <text class="fig-tag" x="260" y="14">B</text>
+            <text class="fig-tag" x="20" y="216">C</text>
+            <text class="fig-tag" x="260" y="216">D</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE GAP ============ -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">The Problem</div>
+        <h2>Most stalled deals aren't a sales problem. They're a capital problem.</h2>
+        <p class="section-sub">A homeowner wants the project. They just don't have $30–90K in cash sitting around — and most of them are sitting on far more than that in home equity they've never touched.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <h3>Cash offers lose deals</h3>
+          <p>Asking a homeowner to write a check on the spot is the single biggest reason quotes go cold. Financing keeps the conversation moving instead of ending it.</p>
+        </div>
+        <div class="problem-card gold">
+          <h3>Equity is the underused asset</h3>
+          <p>Home equity lending unlocks capital homeowners already have, at rates well below unsecured personal loans or credit cards — without touching their first mortgage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">The Mechanism</div>
+        <h2>One partnership, four moving parts.</h2>
+        <p class="section-sub">Figure's platform handles underwriting and funding end to end. Your team simply presents financing as an option at the point of sale.</p>
+      </div>
+      <div class="fig-steps">
+        <div class="fig-step">
+          <span class="fig-num">FIG. 2 — A</span>
+          <h4>Homeowner applies</h4>
+          <p>A short online application with a soft credit pull — no impact to their score, no paperwork at the kitchen table.</p>
+        </div>
+        <div class="fig-step">
+          <span class="fig-num">FIG. 2 — B</span>
+          <h4>Underwriting runs</h4>
+          <p>Figure evaluates available home equity and issues a decision, often the same day the application is submitted.</p>
+        </div>
+        <div class="fig-step">
+          <span class="fig-num">FIG. 2 — C</span>
+          <h4>Contract is signed</h4>
+          <p>With financing confirmed, the homeowner signs your contract and the project is scheduled like any cash deal.</p>
+        </div>
+        <div class="fig-step">
+          <span class="fig-num">FIG. 2 — D</span>
+          <h4>Homeowner is funded</h4>
+          <p>The approved amount is disbursed directly to the homeowner, typically within about 5 business days of closing — they then pay your business per your own contract's standard terms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VERTICALS ============ -->
+  <section id="verticals">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Who This Is Built For</div>
+        <h2>If your customer needs a five-figure check, we can help you close it.</h2>
+        <p class="section-sub">The financing structure works anywhere a homeowner is investing in their property — solar is where we started, and the platform extends across the trades.</p>
+      </div>
+      <div class="vert-grid">
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="18" r="7" class="illo-line"/>
+            <path class="illo-line" d="M32 5v4M32 27v4M19 18h4M45 18h4M23 9l3 3M41 9l-3 3M23 27l3-3M41 27l-3 3"/>
+            <rect x="12" y="38" width="40" height="18" class="illo-line"/>
+            <path class="illo-line" d="M12 38l6-8h28l6 8"/>
+            <path class="illo-line-gold" d="M18 42h8v8h-8zM28 42h8v8h-8zM38 42h8v8h-8z"/>
+          </svg>
+          <h4>Solar &amp; Battery Storage</h4>
+          <p>Panel systems, BESS installs, and EPC projects across residential and light commercial.</p>
+        </div>
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="illo-line" d="M8 34L32 12l24 22"/>
+            <path class="illo-line" d="M14 30v22h36V30"/>
+            <path class="illo-line-gold" d="M12 34h40M20 34v-6M28 34v-10M36 34v-10M44 34v-6"/>
+            <rect x="27" y="40" width="10" height="12" class="illo-line"/>
+          </svg>
+          <h4>Roofing</h4>
+          <p>Full replacements and storm-repair projects that need to move before the next season.</p>
+        </div>
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="14" y="10" width="36" height="44" class="illo-line"/>
+            <path class="illo-line-gold" d="M32 10v44M14 32h36"/>
+            <path class="illo-line" d="M14 10l-4 4v36l4 4M50 10l4 4v36l-4 4"/>
+          </svg>
+          <h4>Windows &amp; Doors</h4>
+          <p>Whole-home window packages and entry systems sold on efficiency and comfort.</p>
+        </div>
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="16" y="16" width="32" height="32" rx="2" class="illo-line"/>
+            <circle cx="32" cy="32" r="9" class="illo-line-gold"/>
+            <path class="illo-line-gold" d="M32 23v4M32 37v4M23 32h4M37 32h4M25.5 25.5l3 3M35.5 35.5l3 3M25.5 38.5l3-3M35.5 28.5l3-3"/>
+            <path class="illo-line" d="M16 24h-6M16 40h-6M48 24h6M48 40h6"/>
+          </svg>
+          <h4>HVAC</h4>
+          <p>Full system replacements where financing turns an emergency into a planned upgrade.</p>
+        </div>
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="illo-line" d="M10 54L44 20M40 16l8 8M46 14l4 4-4 4-4-4z"/>
+            <path class="illo-line-gold" d="M12 46l6 6M18 40l6 6"/>
+            <rect x="9" y="49" width="8" height="8" class="illo-line" transform="rotate(45 13 53)"/>
+          </svg>
+          <h4>Full Remodels</h4>
+          <p>Kitchens, additions, and larger scopes where equity is the natural funding source.</p>
+        </div>
+        <div class="vert-card">
+          <svg class="vert-illo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path class="illo-line" d="M14 20l10 10-14 14a4 4 0 006 6l14-14 10 10"/>
+            <path class="illo-line-gold" d="M34 14a10 10 0 0114 14l-4-2-2-6-6-2z"/>
+            <circle cx="16" cy="48" r="2.5" class="illo-line-gold"/>
+          </svg>
+          <h4>Other Home Improvement</h4>
+          <p>Siding, decking, basement finishing, and any project sized for a home equity draw.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY PARTNER ============ -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Why Partner With Us</div>
+        <h2>We sit between you and the lender — not in your way.</h2>
+        <p class="section-sub">We manage the lending relationship, the underwriting questions, and the deal-desk support so your sales team can stay focused on the sale.</p>
+      </div>
+      <div class="ledger">
+        <div class="ledger-row">
+          <span class="num">01</span>
+          <h4>Same-day decisions</h4>
+          <p>Most homeowner applications receive a credit decision within hours, not the 2–4 weeks typical of a traditional HELOC.</p>
+        </div>
+        <div class="ledger-row">
+          <span class="num">02</span>
+          <h4>First mortgage stays untouched</h4>
+          <p>Homeowners access equity without refinancing an existing low-rate mortgage.</p>
+        </div>
+        <div class="ledger-row">
+          <span class="num">03</span>
+          <h4>Full funds, fast</h4>
+          <p>Homeowners receive their full approved amount directly, typically within about 5 business days — so they're ready to pay you per your standard contract terms without a drawn-out disbursement process.</p>
+        </div>
+        <div class="ledger-row">
+          <span class="num">04</span>
+          <h4>Dedicated deal desk</h4>
+          <p>A direct line to our team for underwriting questions, status checks, and escalations — not a call center queue.</p>
+        </div>
+        <div class="ledger-row">
+          <span class="num">05</span>
+          <h4>Co-branded sales materials</h4>
+          <p>Financing one-pagers, calculators, and scripts your sales reps can use at the point of sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOMEOWNER CTA ============ -->
+  <section id="apply">
+    <div class="wrap">
+      <div class="homeowner-band">
+        <div>
+          <div class="section-tag">For Homeowners</div>
+          <h2>Ready to check what your equity could cover?</h2>
+          <p class="section-sub">Check your pre-approval in about five minutes with a soft credit check that won't affect your score. Loan amounts up to $750,000, with funding in as little as 5 business days once approved.</p>
+          <div class="hero-ctas" style="margin-top:30px; margin-bottom:0;">
+            <a class="btn-primary" href="https://figure-home-equity.pxf.io/c/7511981/3984582/8735" target="_blank" rel="noopener sponsored">Apply Now</a>
+            <a class="btn-ghost" href="#faq">Read Common Questions</a>
+          </div>
+          <p class="apply-note">You'll be taken to Figure Lending LLC to complete your application. Home Equity Lending LLC is a marketing affiliate and does not make lending decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-tag">Common Questions</div>
+        <h2>What contractors and homeowners ask us most.</h2>
+        <p class="section-sub">Straight answers on how home equity financing works through this partnership.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">What's the difference between a HELOC and a home equity loan?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">A home equity loan gives you a single lump sum with a fixed repayment schedule. A traditional HELOC (home equity line of credit) instead lets you draw funds as needed over time, up to an approved limit. Figure's HELOC is a bit of a hybrid: it requires the full approved amount to be disbursed at closing, similar to a home equity loan, but keeps the line open so homeowners can redraw funds as they repay during the draw period.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How fast can financing be approved for a project like solar or a roof replacement?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Homeowners typically complete the online application in about five minutes, and many receive a credit decision the same day — a meaningfully faster timeline than a traditional home equity loan, which can take several weeks. This makes it practical to offer financing at the point of sale rather than asking a homeowner to wait before signing a contract.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Does checking eligibility affect a homeowner's credit score?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">The initial eligibility check uses a soft credit pull, which does not affect the homeowner's credit score. A hard credit inquiry only occurs later in underwriting, once the homeowner chooses to move forward with a full application.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Will taking a HELOC affect a homeowner's existing mortgage?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">No — a HELOC or home equity loan sits behind the homeowner's existing first mortgage rather than replacing it. Homeowners keep their current mortgage rate and terms untouched while accessing equity separately.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How does the contractor get paid once a homeowner is approved?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Figure disburses the full approved loan amount directly to the homeowner's account at closing, typically within about 5 business days — there is no lender-managed milestone draw process to the contractor. The homeowner then pays your business according to whatever payment schedule is set out in your own contract with them.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Which trades and project types qualify for this financing?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">The financing structure applies broadly to home-improvement projects a homeowner is investing in their property for, including solar and battery storage, roofing, windows and doors, HVAC replacement, full remodels, and other qualifying home improvement work.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How much can a homeowner borrow?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Loan amounts through Figure's home equity products range up to $750,000, depending on the homeowner's available equity, credit profile, and underwriting approval.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Who actually originates and underwrites the loan?<span class="faq-icon">+</span></summary>
+          <div class="faq-answer">Home Equity Lending LLC is a marketing affiliate and does not originate, underwrite, or fund loans. All financing is originated by Figure Lending LLC, an equal opportunity lender. Approval, rates, and terms are determined by Figure's underwriting guidelines and vary by state.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact-section">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="section-tag">Start a Partnership</div>
+          <h2>Let's get your sales team financing-ready.</h2>
+          <p class="section-sub">Tell us about your business and project volume. We'll follow up within one business day to walk through onboarding and underwriting requirements.</p>
+          <div class="contact-list">
+            <div><strong>Partnerships</strong><a href="mailto:info@homeeqty.com">info@homeeqty.com</a></div>
+
+          </div>
+        </div>
+        <form name="partner-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="partner-form">
+          <input type="hidden" name="form-name" value="partner-inquiry">
+          <p style="position:absolute; left:-9999px;">
+            <label>Leave this field blank: <input name="bot-field"></label>
+          </p>
+          <div class="form-row">
+            <div>
+              <label for="company">Company Name</label>
+              <input id="company" name="company" type="text" required>
+            </div>
+            <div>
+              <label for="contact-name">Your Name</label>
+              <input id="contact-name" name="contact-name" type="text" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="vertical">Trade / Vertical</label>
+              <select id="vertical" name="vertical">
+                <option>Solar &amp; Battery Storage</option>
+                <option>Roofing</option>
+                <option>Windows &amp; Doors</option>
+                <option>HVAC</option>
+                <option>Full Remodels</option>
+                <option>Other Home Improvement</option>
+              </select>
+            </div>
+            <div>
+              <label for="volume">Monthly Project Volume</label>
+              <select id="volume" name="volume">
+                <option>Under $100K</option>
+                <option>$100K – $500K</option>
+                <option>$500K – $2M</option>
+                <option>$2M+</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="message">Anything else we should know?</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Request Partnership Info</button>
+          <p class="form-status" role="status" aria-live="polite" style="margin:4px 0 0; font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--paper-dim); display:none;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // header scroll state + mobile menu
+  (function(){
+    var header = document.getElementById('site-header');
+    var toggle = document.getElementById('nav-toggle');
+    var panel  = document.getElementById('nav-panel');
+
+    function onScroll(){
+      if(window.scrollY > 12){ header.classList.add('scrolled'); }
+      else { header.classList.remove('scrolled'); }
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    function closePanel(){
+      panel.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open menu');
+    }
+
+    toggle.addEventListener('click', function(){
+      var open = panel.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+
+    panel.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closePanel);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && panel.classList.contains('open')){
+        closePanel();
+        toggle.focus();
+      }
+    });
+  })();
+
+  (function(){
+    var form = document.getElementById('partner-form');
+    if(!form) return;
+    var btn = form.querySelector('.submit-btn');
+    var status = form.querySelector('.form-status');
+
+    function encode(data){
+      return Object.keys(data)
+        .map(function(key){ return encodeURIComponent(key) + '=' + encodeURIComponent(data[key]); })
+        .join('&');
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = {};
+      new FormData(form).forEach(function(value, key){ data[key] = value; });
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.style.display = 'none';
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode(data)
+      })
+      .then(function(response){
+        if(response.ok){
+          btn.textContent = 'Request Received';
+          status.textContent = "Thanks — we'll follow up within one business day.";
+          status.style.display = 'block';
+          form.reset();
+        } else {
+          throw new Error('Network response was not ok');
+        }
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Request Partnership Info';
+        status.textContent = 'Something went wrong — please email info@homeeqty.com directly.';
+        status.style.display = 'block';
+      });
+    });
+  })();
+</script>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="disclosure">
+      <p>Home Equity Lending LLC is an independent marketing affiliate and does not originate or fund loans, and may receive compensation for referrals. All financing products are originated by Figure Lending LLC, an Equal Housing Lender. NMLS ID 1717824. For licensing information, go to <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener">www.nmlsconsumeraccess.org</a>. Loan approval and terms are subject to underwriting guidelines and applicable law. Rates, terms, and availability vary by state.</p>
+    </div>
+    <div>© 2026 Home Equity Lending LLC</div>
+  </div>
+</footer>
+
+</body>
+</html>
