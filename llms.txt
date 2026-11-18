@@ -1,0 +1,39 @@
+# Home Equity Lending
+
+> Plain answers for homeowners on HELOCs, home equity loans and cash out refinancing, including the risks, plus a state by state home equity data snapshot built from public Census, FHFA and Federal Reserve data.
+
+Home Equity Lending LLC (homeeqty.com) is an independent marketing affiliate of Figure Lending LLC (NMLS 1717824) and may be compensated when you start an application through our links. We are not a lender and not a government program, and we do not make credit decisions. Every home equity loan or line uses the home as collateral. Pages are written by Home Equity Lending and list their primary sources.
+
+## Data
+
+- [National home equity snapshot](https://homeeqty.com/data/home-equity-snapshot/): U.S. homeowners held about $35.8 trillion in home equity in mid 2026. States ranked by free and clear homes and median home value, plus home equity loans and price changes, with a CSV.
+- [Snapshot data as CSV](https://homeeqty.com/data/home-equity-snapshot/home-equity-snapshot-by-state.csv): The state by state table with margins of error and 5 year price changes.
+
+## Homeowner answers
+
+- [Does checking HELOC offers hurt my credit?](https://homeeqty.com/answers/does-checking-heloc-offers-hurt-my-credit/): A soft credit inquiry does not affect your credit scores, and a hard inquiry can. What each one is and what to ask a lender before you share your information.
+- [Can I use a HELOC for my business?](https://homeeqty.com/answers/heloc-for-business/): Using a HELOC for a small business: how it compares with business credit, what the IRS says about interest, and why your home is at risk.
+- [Is it smart to use a HELOC for medical bills?](https://homeeqty.com/answers/heloc-for-medical-bills/): Paying medical bills with a HELOC turns unsecured bills into debt secured by your home. What to check first and how a HELOC compares with a provider payment plan.
+- [Should I use a HELOC for college or take out student loans?](https://homeeqty.com/answers/heloc-or-student-loans-for-college/): Federal student loans have protections a HELOC does not, and they do not put your home at risk. How the two compare before you pay for college.
+- [Is a HELOC a smart way to pay off credit cards?](https://homeeqty.com/answers/heloc-to-pay-off-credit-cards/): Paying off credit cards with a HELOC turns unsecured card debt into debt secured by your home. Compare the options, the questions to ask yourself and the risks.
+- [HELOC or 401k loan: which is the better way to borrow?](https://homeeqty.com/answers/heloc-vs-401k-loan/): A HELOC puts your home at risk; a 401k loan puts your retirement savings at risk. How they compare, what the IRS limits are, and questions to ask yourself.
+- [HELOC or a credit card balance transfer?](https://homeeqty.com/answers/heloc-vs-balance-transfer/): A balance transfer moves card debt to another card and does not touch your home; a HELOC pays cards off with a line secured by your home. How they compare.
+- [HELOC or a business line of credit?](https://homeeqty.com/answers/heloc-vs-business-line-of-credit/): A HELOC is personal credit backed by your home; a business line of credit is made to your business. How they compare and why your home is at risk with a HELOC.
+- [HELOC or cash out refinance: which is better for me?](https://homeeqty.com/answers/heloc-vs-cash-out-refinance/): How a HELOC and a cash out refinance differ, the questions to settle before you choose, and the risks of each. Both use your home as collateral.
+- [HELOC or home equity loan: what is the difference?](https://homeeqty.com/answers/heloc-vs-home-equity-loan/): A HELOC is a line you draw from as needed; a home equity loan pays one lump sum. Both are secured by your home. How they compare side by side.
+- [HELOC or personal loan to consolidate debt?](https://homeeqty.com/answers/heloc-vs-personal-loan-debt-consolidation/): HELOC or personal loan for debt consolidation: how they differ, questions to ask yourself, and why a HELOC turns unsecured debt into debt secured by your home.
+- [HELOC or reverse mortgage after 62?](https://homeeqty.com/answers/heloc-vs-reverse-mortgage/): A HELOC needs payments as you borrow; a reverse mortgage is for homeowners 62 and older, needs no monthly loan payment while you live there, and its balance grows. How they compare.
+- [Should I use home equity to pay for a wedding?](https://homeeqty.com/answers/home-equity-for-a-wedding/): A HELOC can pay for a wedding, but it is debt secured by your home for a one day event. How it compares with a personal loan and what to weigh first.
+- [How fast can I get a HELOC?](https://homeeqty.com/answers/how-fast-can-i-get-a-heloc/): How long a HELOC takes depends on the lender's steps for checking your home's value, income and title, plus the three business day right to cancel on your main home.
+- [How much can I borrow with a HELOC?](https://homeeqty.com/answers/how-much-can-i-borrow-with-a-heloc/): The lender sets your HELOC credit line from your home's value, what you owe, your credit and your income. Why the line is often smaller than your equity.
+- [How much equity do I have in my home?](https://homeeqty.com/answers/how-much-equity-do-i-have/): Your home equity is your home's value minus everything you owe on loans secured by it. How to estimate it yourself, and why a lender's number can differ.
+- [Should I keep my current mortgage and add a HELOC instead of refinancing?](https://homeeqty.com/answers/keep-mortgage-add-heloc-or-refinance/): Adding a HELOC leaves your mortgage in place and adds a second loan; refinancing replaces it. How the two compare and what to ask before you choose.
+- [What should I ask before opening a HELOC?](https://homeeqty.com/answers/questions-to-ask-before-opening-a-heloc/): The questions to ask a lender before you open a HELOC: how the rate can change, every cost, the draw and repayment periods, balloon payments and when the line can be frozen.
+- [Can self employed homeowners get a HELOC?](https://homeeqty.com/answers/self-employed-heloc/): Self employed homeowners can apply for a HELOC. Approval depends on the lender's review of income, credit and equity, and expect to show more paperwork.
+- [What do I need to qualify for a HELOC?](https://homeeqty.com/answers/what-do-i-need-to-qualify-for-a-heloc/): Lenders generally look at your home equity, credit history, income and debts. What each one means and what to gather before you apply.
+
+## Optional
+
+- [All homeowner answers](https://homeeqty.com/answers/): The full list of answer pages.
+- [Home page](https://homeeqty.com/): How home equity borrowing works, the options and the risks.
+- [Privacy policy](https://homeeqty.com/privacy/)
