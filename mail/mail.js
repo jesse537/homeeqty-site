@@ -1,11 +1,7 @@
-// Mail test pages: tag the apply link when the visit came from a card's QR code,
-// and run the simple equity estimate in the browser (nothing is saved or sent).
+// Mail pages: run the simple equity estimate in the browser (nothing is saved or sent).
+// The apply link's Sub Ids (mail channel, qr or typed, page) are set by /site.js
+// from the page's data-channel.
 (function(){
-  var link = document.getElementById('apply-link');
-  if (link && /(^|[?&])src=qr(&|$)/.test(window.location.search)) {
-    link.href = link.href + '&subId2=qr';
-  }
-
   var value = document.getElementById('home-value');
   var owed = document.getElementById('owed');
   var out = document.getElementById('calc-result');

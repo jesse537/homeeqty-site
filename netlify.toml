@@ -2,17 +2,3 @@
 [build]
   publish = "."
   command = "echo no build step"
-
-# Mail test: printed card URLs, in case someone types a capital letter.
-[[redirects]]
-  from = "/mail/A"
-  to = "/mail/a/"
-  status = 301
-[[redirects]]
-  from = "/mail/B"
-  to = "/mail/b/"
-  status = 301
-[[redirects]]
-  from = "/mail/C"
-  to = "/mail/c/"
-  status = 301
