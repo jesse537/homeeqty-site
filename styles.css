@@ -630,3 +630,6 @@ table.compare tr:last-child th, table.compare tr:last-child td{ border-bottom:no
 .answer-card h2{ font-size:1.2rem; margin:0 0 10px; }
 .answer-card p{ color:var(--paper-dim); font-size:0.95rem; margin:0 0 14px; }
 .answer-more{ font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-bright); }
+
+/* FAQ icon drawn by CSS on newer answer pages */
+.faq-question .faq-icon:empty::before{ content:"+"; }
