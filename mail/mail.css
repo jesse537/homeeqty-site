@@ -1,0 +1,23 @@
+/* Mail test pages: simple equity estimate */
+.equity-calc{
+  margin-top:32px; max-width:560px; padding:24px;
+  background:var(--panel); border:1px solid var(--line-dim);
+}
+.equity-calc label{
+  display:block; font-size:14px; color:var(--paper-dim); margin:0 0 6px;
+}
+.calc-field{
+  display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  border:1px solid var(--line); background:var(--ink-deep); padding:0 12px;
+}
+.calc-field span{ font-family:'IBM Plex Mono', monospace; color:var(--gold); }
+.calc-field input{
+  flex:1; min-width:0; background:transparent; border:0; color:var(--paper);
+  font:500 18px 'IBM Plex Mono', monospace; padding:12px 0;
+}
+.calc-field input:focus{ outline:none; }
+.calc-field:focus-within{ border-color:var(--gold-bright); }
+.calc-result{
+  font-family:'Fraunces', serif; font-size:22px; color:var(--gold-bright); margin:4px 0 12px;
+}
+.calc-note{ font-size:13px; color:var(--paper-dim); margin:0; }
