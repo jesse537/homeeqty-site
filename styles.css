@@ -630,3 +630,17 @@ table.compare tr:last-child th, table.compare tr:last-child td{ border-bottom:no
 .answer-card h2{ font-size:1.2rem; margin:0 0 10px; }
 .answer-card p{ color:var(--paper-dim); font-size:0.95rem; margin:0 0 14px; }
 .answer-more{ font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--gold-bright); }
+
+/* FAQ icon drawn by CSS so "+" is not part of the question text */
+.faq-question .faq-icon:empty::before{ content:"+"; }
+
+/* Home page list of every answer page */
+.home-answer-links{
+  list-style:none; margin:18px 0 0; padding:0; max-width:1000px;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:10px 32px;
+}
+.home-answer-links a{
+  color:var(--paper-dim); font-size:0.98rem;
+  text-decoration:underline; text-decoration-color:var(--line-dim); text-underline-offset:3px;
+}
+.home-answer-links a:hover, .home-answer-links a:focus-visible{ color:var(--paper); text-decoration-color:var(--gold); }
