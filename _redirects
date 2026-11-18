@@ -1,9 +1,6 @@
 # Netlify redirects. First matching rule wins.
 
-# Mailer landing pages: printed card addresses, in case someone types a capital letter.
-/mail/A    /mail/a/    301
-/mail/B    /mail/b/    301
-/mail/C    /mail/c/    301
+# Mailer landing pages: /mail/A, /mail/B and /mail/C redirects live in netlify.toml.
 /MAIL      /mail/      301
 /Mail      /mail/      301
 
