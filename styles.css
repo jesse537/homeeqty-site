@@ -654,3 +654,17 @@ table.compare tr:last-child th, table.compare tr:last-child td{ border-bottom:no
     font-family:'Fraunces', serif; font-size:22px; color:var(--gold-bright); margin:4px 0 12px;
   }
   .calc-note{ font-size:13px; color:var(--paper-dim); margin:0; }
+
+/* FAQ icon drawn by CSS so "+" is not part of the question text */
+.faq-question .faq-icon:empty::before{ content:"+"; }
+
+/* Home page list of every answer page */
+.home-answer-links{
+  list-style:none; margin:18px 0 0; padding:0; max-width:1000px;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:10px 32px;
+}
+.home-answer-links a{
+  color:var(--paper-dim); font-size:0.98rem;
+  text-decoration:underline; text-decoration-color:var(--line-dim); text-underline-offset:3px;
+}
+.home-answer-links a:hover, .home-answer-links a:focus-visible{ color:var(--paper); text-decoration-color:var(--gold); }
