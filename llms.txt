@@ -6,6 +6,8 @@ Home Equity Lending LLC (homeeqty.com) is an independent marketing affiliate of 
 
 ## Data
 
+- [Home price growth since you bought, by state](https://homeeqty.com/data/home-price-growth-since-you-bought/): U.S. home prices are up 105.8% since mid 2015 and 56.6% since mid 2020, by FHFA's House Price Index. Percent rise by state for every purchase year from 2000 to 2025, with the year the typical owner moved in.
+- [Home price growth data as CSV](https://homeeqty.com/data/home-price-growth-since-you-bought/home-price-growth-by-state-and-purchase-year.csv): Rise in each state's index since the second quarter of each purchase year to the second quarter of 2026, with FHFA low sample flags and Census median year moved in.
 - [National home equity snapshot](https://homeeqty.com/data/home-equity-snapshot/): U.S. homeowners held about $35.8 trillion in home equity in mid 2026. States ranked by free and clear homes and median home value, plus home equity loans and price changes, with a CSV.
 - [Snapshot data as CSV](https://homeeqty.com/data/home-equity-snapshot/home-equity-snapshot-by-state.csv): The state by state table with margins of error and 5 year price changes.
 
