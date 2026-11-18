@@ -2,3 +2,9 @@
 [build]
   publish = "."
   command = "echo no build step"
+
+# Serve llms.txt as UTF-8 plain text so AI crawlers read it cleanly.
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
