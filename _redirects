@@ -1,0 +1,23 @@
+# Netlify redirects. First matching rule wins.
+
+# Mailer landing pages: /mail/A, /mail/B and /mail/C redirects live in netlify.toml.
+/MAIL      /mail/      301
+/Mail      /mail/      301
+
+# Go links: short addresses that send a visitor straight to Figure's apply page with our Sub Ids.
+# subId1 = channel, subId2 = exact source (add ?sd=name to set it, otherwise "golink"), subId3 = which go link.
+# A go link skips our pages, so the post, email or mailer that carries it must show the affiliate disclosure itself.
+/go/site      sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=site&subId2=:sd&subId3=go_site        302
+/go/site              https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=site&subId2=golink&subId3=go_site     302
+/go/email     sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=email&subId2=:sd&subId3=go_email      302
+/go/email             https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=email&subId2=golink&subId3=go_email   302
+/go/social    sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=social&subId2=:sd&subId3=go_social    302
+/go/social            https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=social&subId2=golink&subId3=go_social 302
+/go/mail_a    sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_a&subId2=:sd&subId3=go_mail_a    302
+/go/mail_a            https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_a&subId2=golink&subId3=go_mail_a 302
+/go/mail_b    sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_b&subId2=:sd&subId3=go_mail_b    302
+/go/mail_b            https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_b&subId2=golink&subId3=go_mail_b 302
+/go/mail_c    sd=:sd  https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_c&subId2=:sd&subId3=go_mail_c    302
+/go/mail_c            https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_c&subId2=golink&subId3=go_mail_c 302
+# Unknown go link names land on the home page instead of a 404.
+/go/*         /       302
