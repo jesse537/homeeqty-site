@@ -1,0 +1,5 @@
+# Equity Check: the browser may not send anything anywhere from this page.
+# No fetch or beacon calls (connect-src none) and no form submissions (form-action none).
+/equity/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; form-action 'none'; frame-ancestors 'none'; base-uri 'self'
+  Referrer-Policy: no-referrer

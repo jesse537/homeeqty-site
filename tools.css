@@ -1,0 +1,71 @@
+
+/* ============ EQUITY CHECK AND READINESS CHECKLIST PAGES ============ */
+.page-hero{ border-top:none; padding-bottom:80px; }
+.equity-page, .checklist-page{ max-width:780px; }
+.page-hero .byline{ margin-top:18px; }
+
+.calc{
+  margin:34px 0 0; padding:28px; display:grid; gap:24px;
+  background:var(--panel); border:1px solid var(--line-dim); border-left:3px solid var(--gold);
+}
+.calc .field label{ display:block; font-weight:600; font-size:1.05rem; color:var(--paper); }
+.calc .help{ margin:4px 0 10px; font-size:0.92rem; color:var(--paper-dim); }
+.calc .money{
+  display:flex; align-items:center; gap:8px; max-width:340px;
+  background:var(--ink-deep); border:1px solid var(--line); padding:0 14px;
+}
+.calc .money span{ font-family:'IBM Plex Mono', monospace; color:var(--gold-bright); font-size:1.1rem; }
+.calc input{
+  flex:1; min-width:0; background:transparent; border:0; color:var(--paper);
+  font:500 1.15rem 'IBM Plex Mono', monospace; padding:14px 0;
+}
+.calc input:focus{ outline:none; }
+.calc .money:focus-within{ outline:2px solid var(--focus); outline-offset:3px; }
+.calc input[aria-invalid="true"]{ color:var(--gold-bright); }
+.calc .error{ margin:8px 0 0; min-height:1.2em; font-size:0.92rem; color:var(--gold-bright); }
+.calc .error:empty{ min-height:0; margin:0; }
+.calc .btn-primary{ justify-self:start; cursor:pointer; font:inherit; }
+
+.result{ margin:24px 0 0; padding:28px; border:1px solid var(--gold); background:var(--panel-2); }
+.result-label{
+  margin:0 0 6px; font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+  letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-bright);
+}
+.result-amount{ margin:0; font-family:'Fraunces', serif; font-size:1.7rem; line-height:1.25; color:var(--paper); }
+.result-note{ margin:14px 0 0; color:var(--paper-dim); font-size:0.95rem; }
+.result .btn-ghost{ cursor:pointer; font:inherit; margin-top:8px; }
+
+.next-box{ margin-top:40px; }
+.next-box a{ color:var(--paper); }
+.next-box .btn-primary{ display:inline-block; margin-top:4px; }
+
+.checklist{ margin-top:30px; display:grid; gap:26px; }
+.check-step h2{ font-size:1.35rem; margin:6px 0 12px; }
+.check-step ul{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.check-step li{ display:flex; gap:14px; align-items:flex-start; color:var(--paper-dim); }
+.check-step li a{ color:var(--paper); }
+.check-step .box{
+  flex-shrink:0; width:20px; height:20px; margin-top:3px;
+  border:1.5px solid var(--gold); background:var(--ink-deep);
+}
+.print-disclosure{ margin-top:22px; }
+.hero-ctas button{ cursor:pointer; font:inherit; }
+
+@media print{
+  @page{ size:letter; margin:0.5in; }
+  body{ background:#fff; color:#000; font-size:10.5pt; line-height:1.35; }
+  .grid-bg, .grid-fade, header, footer, .disclosure-bar, .no-print, .eyebrow{ display:none !important; }
+  .page-hero{ padding:0 !important; }
+  .wrap{ padding:0; max-width:none; }
+  h1{ font-size:20pt !important; margin:0 0 4pt !important; color:#000; }
+  h1 em{ color:#000; }
+  .hero-sub, .byline, .check-step li, .notice p, .disclosure-line{ color:#000 !important; }
+  .checklist{ gap:8pt; margin-top:8pt; }
+  .check-step h2{ font-size:12pt; margin:0 0 4pt; color:#000; }
+  .check-step .fig-num{ color:#000; }
+  .check-step ul{ gap:4pt; }
+  .check-step .box{ background:#fff; border-color:#000; width:11pt; height:11pt; }
+  .notice{ background:#fff; border-color:#000; padding:8pt; margin-top:10pt; }
+  .disclosure-line{ font-size:7.5pt; margin-top:6pt; }
+  a{ color:#000 !important; text-decoration:none; }
+}
