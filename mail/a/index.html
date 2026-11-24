@@ -57,20 +57,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
-  <section class="hero mail-hero" style="border-top:none; padding-bottom:40px;">
+  <section class="hero mail-hero" style="border-top:none; padding-bottom:36px;">
     <div class="wrap">
       <div class="eyebrow">For Sandwich homeowners</div>
       <h1>Sandwich homeowners, what is your equity <em>worth today?</em></h1>
-      <p class="hero-sub">Put in two numbers and see your estimated equity in about a minute. No application, nothing to sign.</p>
+      <p class="hero-sub">Two numbers, about a minute. No application, nothing to sign.</p>
 
       <form class="equity-calc" id="equity-calc" onsubmit="return false;" aria-describedby="calc-note">
         <label for="home-value">What your home could sell for today</label>
         <div class="calc-field"><span aria-hidden="true">$</span><input id="home-value" inputmode="numeric" autocomplete="off" placeholder="600,000"></div>
+        <p class="calc-help">Not sure? An online home value estimate or a recent sale on your street is a fine place to start.</p>
         <label for="owed">What you still owe on your mortgage and any other home loans</label>
         <div class="calc-field"><span aria-hidden="true">$</span><input id="owed" inputmode="numeric" autocomplete="off" placeholder="250,000"></div>
-        <p class="calc-result" id="calc-result" aria-live="polite">Your estimated equity will show here.</p>
-        <p class="calc-note" id="calc-note">This is simple math, not an appraisal or an offer of credit. What you type stays in your browser; we do not save or send it. How much any lender would let you borrow depends on that lender.</p>
+
+        <div class="calc-out" aria-live="polite">
+          <p class="calc-result" id="calc-result">Your estimated equity will show here.</p>
+          <p class="calc-detail" id="calc-detail" hidden></p>
+          <p class="calc-detail" id="calc-room" hidden></p>
+        </div>
+
+        <a class="btn-primary calc-cta" id="apply-link" data-version="mail_a" href="https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_a" target="_blank" rel="noopener sponsored">Check your options</a>
+        <p class="calc-next">This opens Figure's website. The licensed lender, not us, runs any credit check. Ask which kind of credit check runs at each step.</p>
+        <p class="calc-note" id="calc-note">This is simple math, not an appraisal or an offer of credit. Each lender sets its own limit and makes its own decision.</p>
       </form>
+
+      <ul class="mail-trust">
+        <li><span>1 min</span>to see your estimate</li>
+        <li><span>0</span>applications on this site</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mail-steps" style="padding:40px 0;">
+    <div class="wrap">
+      <h2>What happens if you click</h2>
+      <ol class="step-list">
+        <li><strong>You go to Figure's website to apply with the licensed lender.</strong> We are an independent marketing affiliate, not a lender.</li>
+        <li><strong>You answer questions about your home, income and debts</strong> and see what you may qualify for. You can stop at any point.</li>
+        <li><strong>Nothing is final until you review the terms and sign.</strong> On your main home, federal law generally gives you three business days to cancel in writing, counted from when you sign and receive the required disclosures and notices.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="mail-local" style="padding:40px 0;">
+    <div class="wrap">
+      <h2>What Cape Cod homeowners ask about</h2>
+      <div class="answer-index mail-topics">
+        <a class="answer-card" href="/answers/paying-for-a-title-5-septic-upgrade-cape-cod/"><h3>A Title 5 septic upgrade</h3><p>The county loan program, a home equity line and the state septic credit, side by side.</p><span class="answer-more">Read the answer</span></a>
+        <a class="answer-card" href="/answers/home-equity-for-flood-and-storm-upgrades-cape-cod/"><h3>Flood and storm upgrades</h3><p>Raising a home, flood vents and hurricane clips, and what to check first.</p><span class="answer-more">Read the answer</span></a>
+        <a class="answer-card" href="/answers/home-equity-to-build-an-adu-massachusetts/"><h3>An ADU for family</h3><p>Massachusetts now allows one ADU by right in single family zones. What to check before you build.</p><span class="answer-more">Read the answer</span></a>
+        <a class="answer-card" href="/answers/heloc-to-pay-off-credit-cards/"><h3>Paying off credit cards</h3><p>The math, and the risk of moving card debt onto your home.</p><span class="answer-more">Read the answer</span></a>
+      </div>
     </div>
   </section>
 
@@ -85,10 +122,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="mail-cta" style="padding:40px 0 90px;">
+  <section class="mail-faq" style="padding:40px 0;">
+    <div class="wrap">
+      <h2>Quick answers</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Is this a loan application?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">No. This page only does simple math in your browser. If you click through, you apply only on Figure's website, and any decision and terms come from the lender.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Will checking hurt my credit?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">A soft inquiry does not affect your credit scores. A hard inquiry, which usually happens when you formally apply, can lower them. Ask which kind of check runs at each step. <a href="/answers/does-checking-heloc-offers-hurt-my-credit/">More on credit checks</a></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How much could I borrow?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">The lender decides, based mainly on your home's value, what you owe on it, your credit history and your income. Your credit line is often smaller than your full equity. <a href="/answers/how-much-can-i-borrow-with-a-heloc/">More on borrowing limits</a></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How long does it take?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Each lender sets its own steps. It depends mostly on how quickly the lender can confirm your home's value, your income and who owns the home. <a href="/answers/how-fast-can-i-get-a-heloc/">More on timing</a></div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Who are you?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Home Equity Lending LLC writes plain answers about home equity. We are an independent marketing affiliate of a licensed lender and may be paid when you start an application through our links. We are not a lender.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="mail-cta" style="padding:30px 0 90px;">
     <div class="wrap">
       <div class="hero-ctas" style="margin-bottom:0;">
-        <a class="btn-primary" id="apply-link" data-version="mail_a" href="https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_a" target="_blank" rel="noopener sponsored">Check your options</a>
+        <a class="btn-primary" data-version="mail_a" href="https://figure-home-equity.pxf.io/c/7511981/510834/8735?subId1=mail_a" target="_blank" rel="noopener sponsored">Check your options</a>
         <a class="btn-ghost" href="/answers/">Read our plain answers first</a>
       </div>
       <p class="disclosure-line">You will leave this site and apply only on Figure's website. Home Equity Lending LLC is an independent marketing affiliate of a licensed lender and may be compensated when you start an application through our links. We are not a lender and do not make credit decisions.</p>
