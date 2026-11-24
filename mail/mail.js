@@ -23,6 +23,7 @@
   function update(){
     var v = num(value), o = num(owed);
     if (v === null || v <= 0) { out.textContent = 'Your estimated equity will show here.'; show(detail); show(room); return; }
+    if (String(owed.value).trim() === '') { out.textContent = 'Now add what you still owe. Put 0 if the home is paid off.'; show(detail); show(room); return; }
     if (o === null) o = 0;
     var eq = v - o;
     if (eq <= 0) {
@@ -42,8 +43,14 @@
       show(room, 'Many lenders keep all loans on a home at or below about 80% of its value, so by these numbers there may be little room to borrow right now.');
     }
   }
-  value.addEventListener('input', update);
-  owed.addEventListener('input', update);
+  // Show commas as people type (600000 becomes 600,000).
+  function commas(el){
+    var digits = String(el.value).replace(/[^0-9]/g, '');
+    el.value = digits ? Number(digits).toLocaleString('en-US') : '';
+  }
+  [value, owed].forEach(function(el){
+    el.addEventListener('input', function(){ commas(el); update(); });
+  });
 })();
 
 // "Not ready yet?" email form (Netlify Forms). Only the email address is sent.

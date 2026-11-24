@@ -707,3 +707,12 @@ table.state-rank td:first-child{ font-family:'IBM Plex Mono', monospace; }
 .later-row button{ cursor:pointer; background:transparent; }
 .later-box .form-status{ font-family:'IBM Plex Mono', monospace; font-size:0.82rem; }
 .later-box a, .calc-note a, .faq-answer a{ color:var(--paper); }
+@media (max-width:560px){
+  .mail-hero{ padding-top:36px; }
+  .mail-hero h1{ font-size:2rem; margin-bottom:14px; }
+  .mail-hero .eyebrow{ margin-bottom:12px; }
+  .mail-hero .hero-sub{ font-size:1rem; margin-bottom:18px; }
+  .mail-hero .equity-calc{ margin-top:0; padding:18px; }
+  .mail-hero .calc-field{ margin-bottom:12px; }
+  .mail-hero .calc-help{ margin:-6px 0 14px; }
+}
