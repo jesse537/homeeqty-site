@@ -38,9 +38,9 @@
     if (!room) return;
     var avail = v * 0.8 - o;
     if (avail > 0) {
-      show(room, 'Many lenders keep all loans on a home at or below about 80% of its value. At 80%, about ' + money(avail) + ' of your equity could be available to borrow. Each lender sets its own limit.');
+      show(room, 'For illustration only: many lenders keep all loans on a home at or below about 80% of its value. At 80%, that would leave about ' + money(avail) + '. Each lender sets its own limit.');
     } else {
-      show(room, 'Many lenders keep all loans on a home at or below about 80% of its value, so by these numbers there may be little room to borrow right now.');
+      show(room, 'For illustration only: many lenders keep all loans on a home at or below about 80% of its value. At 80%, that would leave little or nothing. Each lender sets its own limit.');
     }
   }
   // Show commas as people type (600000 becomes 600,000).
