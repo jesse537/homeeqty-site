@@ -679,3 +679,31 @@ table[data-sortable] thead th button:focus-visible{ outline:2px solid var(--gold
 table[data-sortable] thead th[aria-sort] button::after{ content:' \25B2'; }
 table[data-sortable] thead th[aria-sort="descending"] button::after{ content:' \25BC'; }
 table.state-rank td:first-child{ font-family:'IBM Plex Mono', monospace; }
+
+/* Mail landing page v2: result, next step, trust row, steps, topics, email */
+.calc-help{ font-size:13px; color:var(--paper-dim); margin:-10px 0 18px; }
+.calc-out{ border-top:1px solid var(--line-dim); padding-top:16px; margin-bottom:18px; }
+.calc-detail{ font-size:15px; color:var(--paper); margin:0 0 8px; }
+.calc-detail[hidden]{ display:none; }
+.equity-calc .calc-cta{ display:block; text-align:center; font-size:0.95rem; padding:17px 20px; margin:0 0 12px; }
+.calc-next{ font-size:13px; color:var(--paper-dim); margin:0 0 10px; }
+.mail-trust{ list-style:none; padding:0; margin:22px 0 0; display:flex; gap:28px; flex-wrap:wrap; max-width:560px; }
+.mail-trust li{ font-size:13px; color:var(--paper-dim); }
+.mail-trust span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:1.3rem; color:var(--gold-bright); }
+.mail-steps h2, .mail-local h2, .mail-faq h2, .mail-later h2{ font-size:clamp(1.5rem, 3vw, 2rem); margin:0 0 18px; }
+.step-list{ max-width:640px; padding-left:22px; margin:0; }
+.step-list li{ color:var(--paper-dim); margin:0 0 14px; }
+.step-list strong{ color:var(--paper); font-weight:600; }
+.mail-topics{ margin-top:0; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
+.mail-topics h3{ font-size:1.1rem; margin:0 0 8px; }
+.later-box{ max-width:640px; padding:26px; background:var(--panel); border:1px solid var(--line-dim); }
+.later-box p{ color:var(--paper-dim); }
+.later-row{ display:flex; gap:10px; flex-wrap:wrap; margin:6px 0 10px; }
+.later-row input{
+  flex:1 1 220px; min-width:0; background:var(--ink-deep); border:1px solid var(--line); color:var(--paper);
+  font:500 16px 'IBM Plex Sans', sans-serif; padding:13px 12px;
+}
+.later-row input:focus{ outline:none; border-color:var(--gold-bright); }
+.later-row button{ cursor:pointer; background:transparent; }
+.later-box .form-status{ font-family:'IBM Plex Mono', monospace; font-size:0.82rem; }
+.later-box a, .calc-note a, .faq-answer a{ color:var(--paper); }
