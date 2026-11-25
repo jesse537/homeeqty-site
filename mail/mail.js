@@ -1,4 +1,12 @@
 // Mail pages: run the simple equity estimate in the browser (nothing is saved or sent).
+// Step events for Google Tag Manager carry only the step name, never what was typed.
+function mailStep(name, extra){
+  try {
+    var ev = { event: name, mail_page: document.body.getAttribute('data-channel') || '' };
+    if (extra) for (var k in extra) ev[k] = extra[k];
+    (window.dataLayer = window.dataLayer || []).push(ev);
+  } catch(e){}
+}
 // The apply link's Sub Ids (mail channel, qr or typed, page) are set by /site.js
 // from the page's data-channel.
 (function(){
@@ -8,6 +16,7 @@
   var detail = document.getElementById('calc-detail');
   var room = document.getElementById('calc-room');
   if (!value || !owed || !out) return;
+  var shown = false;
 
   function num(el){
     var n = parseFloat(String(el.value).replace(/[^0-9.]/g, ''));
@@ -34,6 +43,7 @@
     }
     var pct = Math.round((eq / v) * 100);
     out.textContent = 'About ' + money(eq) + ' in equity';
+    if (!shown) { shown = true; mailStep('estimate_shown'); }
     show(detail, 'That is about ' + pct + '% of your home’s value.');
     if (!room) return;
     var avail = v * 0.8 - o;
@@ -50,6 +60,20 @@
   }
   [value, owed].forEach(function(el){
     el.addEventListener('input', function(){ commas(el); update(); });
+  });
+})();
+
+// Clicks on a "Check your options" button, and which quick answers get opened.
+(function(){
+  document.querySelectorAll('a[data-cta]').forEach(function(a){
+    a.addEventListener('click', function(){ mailStep('apply_click', { cta_position: a.getAttribute('data-cta') }); });
+  });
+  document.querySelectorAll('details.faq-item').forEach(function(d, i){
+    d.addEventListener('toggle', function(){
+      if (!d.open) return;
+      var q = d.querySelector('.faq-question');
+      mailStep('faq_open', { faq_question: q ? q.textContent.trim() : 'q' + (i + 1) });
+    });
   });
 })();
 

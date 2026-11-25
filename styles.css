@@ -687,6 +687,8 @@ table.state-rank td:first-child{ font-family:'IBM Plex Mono', monospace; }
 .calc-detail[hidden]{ display:none; }
 .equity-calc .calc-cta{ display:block; text-align:center; font-size:0.95rem; padding:17px 20px; margin:0 0 12px; }
 .calc-next{ font-size:13px; color:var(--paper-dim); margin:0 0 10px; }
+.equity-calc .calc-room{ font-size:13px; margin:0 0 10px; }
+.equity-calc .calc-out{ margin-bottom:14px; }
 .mail-trust{ list-style:none; padding:0; margin:22px 0 0; display:flex; gap:28px; flex-wrap:wrap; max-width:560px; }
 .mail-trust li{ font-size:13px; color:var(--paper-dim); }
 .mail-trust span{ display:block; font-family:'IBM Plex Mono', monospace; font-size:1.3rem; color:var(--gold-bright); }
